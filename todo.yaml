@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anil-deployment
+  name: ashok-deployment
 spec:
   replicas: 2
   selector:
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: anil-lb
+  name: ashok-lb
 spec:
   ports:
     - port: 8080
@@ -34,12 +34,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: anil-deployment
+  name: ashok-deployment
 spec:
   maxReplicas: 10
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: anil-deployment
+    name: ashok-deployment
   targetCPUUtilizationPercentage: 50
